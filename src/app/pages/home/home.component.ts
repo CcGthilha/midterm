@@ -23,9 +23,15 @@ export class HomeComponent implements OnInit {
   constructor(private foodieService: FoodieService) {}
 
   ngOnInit(): void {
-    this.foodieService.getRestaurants().subscribe(res => this.restaurants = res);
-    this.foodieService.getFoodItems().subscribe(foods => this.foodItems = foods);
-  }
+  this.foodieService.getRestaurants().subscribe(res => {
+    console.log('Home ได้รับรายชื่อร้าน:', res);
+    this.restaurants = res;
+  });
+  
+  this.foodieService.getFoodItems().subscribe(foods => {
+    this.foodItems = foods;
+  });
+}
 
   get restaurantTypes(): string[] {
     return Array.from(new Set(this.restaurants.map(r => r.restaurant_type)));

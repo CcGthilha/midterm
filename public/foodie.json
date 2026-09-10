@@ -1,0 +1,118 @@
+{
+  "users": [
+    { "id": 1, "email": "somchai@example.com", "name": "สมชาย สายกิน" },
+    { "id": 2, "email": "suda@example.com", "name": "สุดา ชวนชิม" },
+    { "id": 3, "email": "anand@example.com", "name": "อนันต์ นักรีวิว" },
+    { "id": 4, "email": "wipa@example.com", "name": "วิภา พาเพลิน" }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "ครัวลุงหนวด อาหารตามสั่ง",
+      "restaurant_type": "อาหารตามสั่ง",
+      "location": "ซอยหน้ามหาวิทยาลัย ประตู 1"
+    },
+    {
+      "id": 2,
+      "name": "เตี๋ยวเรืออยุธยารสเด็ด",
+      "restaurant_type": "ก๋วยเตี๋ยว",
+      "location": "ตรงข้ามหอพักนักศึกษาหญิง"
+    },
+    {
+      "id": 3,
+      "name": "โอชะ ส้มตำไก่ย่าง",
+      "restaurant_type": "อาหารอีสาน",
+      "location": "ถนนเลียบคลองชลประทาน"
+    },
+    {
+      "id": 4,
+      "name": "Sweet Cafe & Bakery",
+      "restaurant_type": "ของหวาน",
+      "location": "ข้างตลาดโต้รุ่ง"
+    }
+  ],
+  "foodItems": [
+    {
+      "id": 101,
+      "name": "ข้าวกะเพราหมูกรอบไข่ดาว",
+      "food_type": "อาหารจานเดียว",
+      "image_path": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=400",
+      "price": 60.0,
+      "is_available": true,
+      "restaurant_id": 1
+    },
+    {
+      "id": 102,
+      "name": "ข้าวผัดคะน้าหมูกรอบ",
+      "food_type": "อาหารจานเดียว",
+      "image_path": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400",
+      "price": 55.0,
+      "is_available": true,
+      "restaurant_id": 1
+    },
+    {
+      "id": 103,
+      "name": "เส้นเล็กเนื้อรวมน้ำตก",
+      "food_type": "ก๋วยเตี๋ยว",
+      "image_path": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400",
+      "price": 50.0,
+      "is_available": true,
+      "restaurant_id": 2
+    },
+    {
+      "id": 104,
+      "name": "บะหมี่ต้มยำหมูมะนาว",
+      "food_type": "ก๋วยเตี๋ยว",
+      "image_path": "https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=400",
+      "price": 50.0,
+      "is_available": true,
+      "restaurant_id": 2
+    },
+    {
+      "id": 105,
+      "name": "ส้มตำไทยไข่เค็ม",
+      "food_type": "อาหารอีสาน",
+      "image_path": "https://images.unsplash.com/photo-1594998893017-36147cbcae05?w=400",
+      "price": 45.0,
+      "is_available": true,
+      "restaurant_id": 3
+    },
+    {
+      "id": 106,
+      "name": "ไก่ย่างสมุนไพร",
+      "food_type": "อาหารอีสาน",
+      "image_path": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400",
+      "price": 80.0,
+      "is_available": true,
+      "restaurant_id": 3
+    },
+    {
+      "id": 107,
+      "name": "บิงซูสตรอว์เบอร์รี",
+      "food_type": "ของหวาน",
+      "image_path": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400",
+      "price": 129.0,
+      "is_available": true,
+      "restaurant_id": 4
+    },
+    {
+      "id": 108,
+      "name": "ฮันนี่โทสต์ผลไม้รวม",
+      "food_type": "ของหวาน",
+      "image_path": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400",
+      "price": 139.0,
+      "is_available": true,
+      "restaurant_id": 4
+    }
+  ],
+  "foodReviews": [
+    { "id": 1, "rating": 5, "comment": "หมูกรอบดีมาก กรอบนอกนุ่มใน เผ็ดกำลังดีเลยครับ", "user_id": 1, "food_item_id": 101 },
+    { "id": 2, "rating": 4, "comment": "ให้น้อยไปนิดแต่อร่อยมาก ไข่ดาวทอดกรอบถูกใจ", "user_id": 2, "food_item_id": 101 },
+    { "id": 3, "rating": 5, "comment": "น้ำตกเข้มข้นมาก ไม่ต้องปรุงเพิ่มเลย เนื้อสดเปื่อยนุ่ม", "user_id": 3, "food_item_id": 103 },
+    { "id": 4, "rating": 3, "comment": "รสชาติเผ็ดนำไปหน่อย ใครไม่กินเผ็ดต้องสั่งลดพริก", "user_id": 4, "food_item_id": 103 },
+    { "id": 5, "rating": 5, "comment": "ส้มตำแซ่บ นัวมาก ไข่เค็มลูกใหญ่ สดสะอาด", "user_id": 1, "food_item_id": 105 },
+    { "id": 6, "rating": 4, "comment": "ไก่ย่างหอมเครื่องเทศ หนังกรอบเนื้อฉ่ำ น้ำจิ้มแจ่วเด็ด", "user_id": 2, "food_item_id": 106 },
+    { "id": 7, "rating": 5, "comment": "เกล็ดน้ำแข็งเนียนนุ่ม สตรอว์เบอร์รีให้เยอะ คุ้มราคามาก", "user_id": 3, "food_item_id": 107 },
+    { "id": 8, "rating": 4, "comment": "ขนมปังฉ่ำเนย หวานกำลังดี ทานคู่ไอศกรีมฟินสุดๆ", "user_id": 4, "food_item_id": 108 }
+  ]
+}
