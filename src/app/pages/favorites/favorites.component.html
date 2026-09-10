@@ -1,0 +1,31 @@
+<div class="page-container">
+  <div class="favorite-box">
+    <!-- Header ตามภาพวาด หน้ารายการอาหารที่ชอบ -->
+    <div class="fav-header">
+      <button routerLink="/" class="btn-bubble">กลับหน้าแรก</button>
+      <h2>หน้ารายการอาหารที่ชอบ</h2>
+      <button (click)="clearAll()" class="btn-clear">ล้างทั้งหมด</button>
+    </div>
+
+    <!-- รายการการ์ดอาหารที่บันทึกไว้ -->
+    <div class="fav-list">
+      <div class="fav-item-card" *ngFor="let item of favoriteFoods">
+        <div class="food-thumbnail-box">
+          <img [src]="item.image_path" alt="food image" title="food image" />
+        </div>
+
+        <div class="fav-item-info">
+          <p><strong>ชื่อเมนู:</strong> {{ item.name }}</p>
+          <p><strong>ชื่อร้าน:</strong> {{ getRestaurantName(item.restaurant_id) }}</p>
+          <button (click)="removeFav(item.id)" class="btn-trash" title="ลบออกจากรายการ">
+            🗑️
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="favoriteFoods.length === 0" class="empty-state">
+        ไม่มีรายการอาหารที่ชอบในขณะนี้
+      </div>
+    </div>
+  </div>
+</div>

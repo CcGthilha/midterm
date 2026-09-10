@@ -1,0 +1,35 @@
+<div class="page-container">
+  <!-- Top Bar ตามรูปวาด -->
+  <div class="top-nav-bar">
+    <div class="input-with-icon">
+      <input type="text" [(ngModel)]="searchRestaurant" placeholder="ค้นหาร้านอาหาร" />
+      <span class="search-btn">🔍</span>
+    </div>
+
+    <select [(ngModel)]="selectedType" title="เลือกประเภทอาหาร" aria-label="เลือกประเภทอาหาร">
+      <option value="">เลือกประเภท</option>
+      <option *ngFor="let t of restaurantTypes" [value]="t">{{ t }}</option>
+    </select>
+
+    <div class="input-with-icon">
+      <input type="text" [(ngModel)]="searchMenu" placeholder="ค้นหาเมนูอาหาร" />
+      <span class="search-btn">🔍</span>
+    </div>
+
+    <button routerLink="/favorites" class="btn-bubble">อาหารที่ชอบ</button>
+  </div>
+
+  <!-- ตารางร้านอาหาร 2 คอลัมน์ เรียง id จากน้อยไปมาก -->
+  <div class="restaurant-grid">
+    <div class="restaurant-card" *ngFor="let r of filteredRestaurants">
+      <div class="restaurant-info">
+        <p><strong>ชื่อร้าน:</strong> {{ r.name }}</p>
+        <p><strong>ประเภท:</strong> {{ r.restaurant_type }}</p>
+        <p><strong>สถานที่:</strong> {{ r.location }}</p>
+      </div>
+      <div class="card-action">
+        <button [routerLink]="['/restaurant', r.id]" class="btn-detail">รายละเอียด</button>
+      </div>
+    </div>
+  </div>
+</div>

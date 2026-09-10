@@ -1,0 +1,43 @@
+<div class="page-container" *ngIf="restaurant">
+  <div class="detail-box">
+    <!-- Header หน้ารายละเอียดตามภาพวาด -->
+    <div class="detail-header-info">
+      <p><strong>หน้ารายละเอียด</strong></p>
+      <p>
+        <span>ชื่อร้าน: {{ restaurant.name }}</span>
+        <span class="divider">|</span>
+        <span>ประเภท: {{ restaurant.restaurant_type }}</span>
+        <span class="divider">|</span>
+        <span>สถานที่: {{ restaurant.location }}</span>
+      </p>
+    </div>
+
+    <div class="top-action">
+      <button routerLink="/" class="btn-bubble">กลับหน้าแรก</button>
+    </div>
+
+    <!-- รายการเมนูอาหาร -->
+    <div class="menu-list">
+      <div class="menu-item-card" *ngFor="let item of foodItems">
+        <div class="food-thumbnail-box">
+          <img [src]="item.image_path" alt="food image" title="food image" />
+        </div>
+
+        <div class="menu-middle">
+          <p><strong>ชื่อ:</strong> {{ item.name }}</p>
+          <p><strong>ประเภท:</strong> {{ item.food_type }}</p>
+          <button (click)="toggleFav(item.id)" class="btn-heart"
+            [title]="isFav(item.id) ? 'ยกเลิกชอบ' : 'เพิ่มในรายการโปรด'">
+            {{ isFav(item.id) ? '❤️' : '🤍' }}
+          </button>
+        </div>
+
+        <div class="menu-right">
+          <button [routerLink]="['/review', item.id]" [queryParams]="{ restId: restaurant.id }" class="btn-review">
+            Review
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

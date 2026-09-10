@@ -1,0 +1,90 @@
+.top-nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px;
+  border: 1px solid #777;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 24px;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  border: 1px solid #777;
+  border-radius: 20px;
+  padding: 4px 10px;
+  background-color: #fff;
+}
+
+.input-with-icon input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-btn {
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+select {
+  border: 1px solid #777;
+  border-radius: 6px;
+  padding: 6px 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+.btn-bubble {
+  border: 1px solid #777;
+  border-radius: 20px;
+  padding: 6px 14px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.restaurant-card {
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+}
+
+.restaurant-info p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.card-action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.btn-detail {
+  border: 1px solid #555;
+  border-radius: 18px;
+  padding: 5px 14px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+  }
+}

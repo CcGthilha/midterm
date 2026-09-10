@@ -1,0 +1,40 @@
+<div class="page-container" *ngIf="foodItem">
+  <div class="review-box">
+    <!-- Header ข้อมูลเมนูตามรูปวาด -->
+    <div class="review-header">
+      <p><strong>หน้า Review</strong></p>
+      <p>
+        <span>ชื่ออาหาร: {{ foodItem.name }}</span>
+        <span class="divider">|</span>
+        <span>ประเภท: {{ foodItem.food_type }}</span>
+      </p>
+      <button [routerLink]="['/restaurant', prevRestId]" class="btn-bubble">กลับหน้าเมนู</button>
+    </div>
+
+    <!-- โครงสร้าง: ซ้ายรูปภาพอาหาร, ขวารายการคอมเมนต์ -->
+    <div class="review-content-layout">
+      <div class="food-photo-column">
+        <img [src]="foodItem.image_path" alt="food image" title="food image" onerror="this.src='https://placehold.co/240x200?text=Food+Photo'" />
+      </div>
+
+      <div class="comment-bubbles-column">
+        <div class="comment-card" *ngFor="let rev of reviews">
+          <div class="user-meta">
+            <span class="user-avatar">👤</span>
+            <span class="user-name"><strong>{{ getUserName(rev.user_id) }}</strong></span>
+            <span class="rating-stars">
+              <span *ngFor="let s of getStarArray(rev.rating)">⭐</span>
+            </span>
+          </div>
+          <div class="comment-body">
+            <p>{{ rev.comment }}</p>
+          </div>
+        </div>
+
+        <div *ngIf="reviews.length === 0" class="no-reviews">
+          ยังไม่มีข้อมูลรีวิวสำหรับเมนูนี้
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
