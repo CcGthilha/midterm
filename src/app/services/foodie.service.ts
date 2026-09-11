@@ -17,11 +17,9 @@ export class FoodieService {
   }
 
   private fetchData(): void {
-    // โหลดไฟล์จาก assets/foodie.json
     this.http.get<FoodieData>('assets/foodie.json').subscribe({
       next: (data) => this.dataSubject.next(data),
       error: () => {
-        // Fallback รองรับ Angular ที่ build ชี้ไปที่ root
         this.http.get<FoodieData>('/foodie.json').subscribe({
           next: (data) => this.dataSubject.next(data),
           error: (err) => console.error('Cannot load foodie.json:', err)

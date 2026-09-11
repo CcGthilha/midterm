@@ -9,8 +9,8 @@ import { Restaurant, FoodItem } from '../../models/foodie.model';
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
-  templateUrl: './home.component.html', // ถ้าไฟล์ชื่อ home.html ให้แก้เป็น './home.html'
-  styleUrls: ['./home.component.css']  // ถ้าไฟล์ชื่อ home.css ให้แก้เป็น './home.css'
+  templateUrl: './home.component.html', 
+  styleUrls: ['./home.component.css'] 
 })
 export class HomeComponent implements OnInit {
   restaurants: Restaurant[] = [];
