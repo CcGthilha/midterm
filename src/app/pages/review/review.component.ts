@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FoodieService } from '../../services/foodie.service';
@@ -19,7 +19,8 @@ export class ReviewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private foodieService: FoodieService
+    private foodieService: FoodieService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class ReviewComponent implements OnInit {
       if (!this.prevRestId && food) {
         this.prevRestId = food.restaurant_id;
       }
+      this.cdr.markForCheck();
     });
 
     this.foodieService.getReviewsByFoodItem(foodId).subscribe(revs => {
@@ -39,9 +41,11 @@ export class ReviewComponent implements OnInit {
         this.foodieService.getUserById(r.user_id).subscribe(user => {
           if (user) {
             this.usersMap.set(r.user_id, user.name);
+            this.cdr.markForCheck();
           }
         });
       });
+      this.cdr.markForCheck();
     });
   }
 

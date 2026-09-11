@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FoodieService } from '../../services/foodie.service';
@@ -15,7 +15,7 @@ export class FavoritesComponent implements OnInit {
   favoriteFoods: FoodItem[] = [];
   restaurants: Restaurant[] = [];
 
-  constructor(private foodieService: FoodieService) {}
+  constructor(private foodieService: FoodieService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.foodieService.getRestaurants().subscribe(rests => {
@@ -32,6 +32,7 @@ export class FavoritesComponent implements OnInit {
     this.foodieService.getFoodItems().subscribe(foods => {
       this.foodieService.favorites$.subscribe(favIds => {
         this.favoriteFoods = foods.filter(f => favIds.includes(f.id));
+        this.cdr.markForCheck();
       });
     });
   }

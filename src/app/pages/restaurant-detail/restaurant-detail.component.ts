@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FoodieService } from '../../services/foodie.service';
@@ -18,14 +18,15 @@ export class RestaurantDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private foodieService: FoodieService
+    private foodieService: FoodieService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     const restaurantId = Number(this.route.snapshot.paramMap.get('id'));
-    this.foodieService.getRestaurantById(restaurantId).subscribe(r => this.restaurant = r);
-    this.foodieService.getFoodItemsByRestaurant(restaurantId).subscribe(f => this.foodItems = f);
-    this.foodieService.favorites$.subscribe(favs => this.favoriteIds = favs);
+    this.foodieService.getRestaurantById(restaurantId).subscribe(r => { this.restaurant = r; this.cdr.markForCheck(); });
+    this.foodieService.getFoodItemsByRestaurant(restaurantId).subscribe(f => { this.foodItems = f; this.cdr.markForCheck(); });
+    this.foodieService.favorites$.subscribe(favs => { this.favoriteIds = favs; this.cdr.markForCheck(); });
   }
 
   toggleFav(foodId: number): void {

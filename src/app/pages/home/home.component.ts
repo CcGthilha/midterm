@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -20,16 +20,17 @@ export class HomeComponent implements OnInit {
   selectedType: string = '';
   searchMenu: string = '';
 
-  constructor(private foodieService: FoodieService) {}
+  constructor(private foodieService: FoodieService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
   this.foodieService.getRestaurants().subscribe(res => {
-    console.log('Home ได้รับรายชื่อร้าน:', res);
     this.restaurants = res;
+    this.cdr.markForCheck();
   });
   
   this.foodieService.getFoodItems().subscribe(foods => {
     this.foodItems = foods;
+    this.cdr.markForCheck();
   });
 }
 
